@@ -1,15 +1,33 @@
+
 <launch>
 
 	<node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen"/>
 
 	<node pkg="turtlebot_control" type="basic_controller" name="controller_1" output="screen">
 		<remap from="cmd_vel" to="turtle1/cmd_vel"/>
-		<param name="linear_speed" value="5.0"/>
-		<param name="angular_speed" value="5.0"/>
+		<param name="linear_speed" value="1.0"/>
+		<param name="angular_speed" value="1.0"/>
 	</node>
 
-	<!-- <rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=turtle1/cmd_vel>  -->
+	<node pkg="turtlebot_control" type="basic_controller" name="controller_2" output="screen">
+		<remap from="cmd_vel" to="turtle2/cmd_vel"/>
+		<param name="linear_speed" value="2.0"/>
+		<param name="angular_speed" value="2.0"/>
+		<param name="spawn_turtle_name" value="turtle2"/>
+		<!-- TODO: remap cmd_vel topic -->
+		<!-- TODO: set speed parameters -->
+		<!-- TODO: set spawn_turtle_name param -->
+	</node>
 
-	<!-- TODO: launch our node and remap the cmd_vel topic -->
+	<node pkg="turtlebot_control" type="basic_controller" name="controller_3" output="screen">
+		<remap from="cmd_vel" to="turtle3/cmd_vel"/>
+		<param name="linear_speed" value="3.0"/>
+		<param name="angular_speed" value="3.0"/>
+		<!-- TODO: remap cmd_vel topic -->
+		<!-- TODO: set speed parameters -->
+		<!-- TODO: set spawn_turtle_name param -->
+	</node>
 
 </launch>
+
+
